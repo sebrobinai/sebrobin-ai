@@ -100,6 +100,10 @@
   .app-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; background: linear-gradient(135deg, rgba(200,40,30,.1), rgba(232,114,90,.1)); color: var(--red); }
   .app-badge { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 100px; letter-spacing: .04em; }
   .badge-soon { background: rgba(245,158,11,.1); color: #d97706; }
+  .badge-live { background: rgba(16,185,129,.1); color: #059669; }
+  .badge-beta { background: rgba(99,102,241,.1); color: #6366f1; }
+  .app-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: all .2s; }
+  .app-link:hover { color: var(--red); border-color: var(--red); }
   .app-name { font-family: "Playfair Display", serif; font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
   .app-tagline { font-size: 13px; font-weight: 600; color: var(--red); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 14px; }
   .app-desc { font-size: 14px; color: var(--gray); line-height: 1.65; margin-bottom: 24px; }
@@ -237,14 +241,14 @@
   <div class="section-header">
     <div class="section-tag">Nos Applications</div>
     <h2>Un studio, tous vos défis résolus.</h2>
-    <p>De votre première vente à la conformité ESG — nous avons créé une application IA pour chaque défi récurrent de votre activité.</p>
+    <p>De votre première vente à la conformité ESG — nous créons une application IA pour chaque défi récurrent de votre activité. Si vous avez un besoin que nous n'avons pas encore couvert, <a href="#demo" style="color:var(--red);font-weight:600;">dites-le nous</a> et on s'en occupe !</p>
   </div>
   <div class="apps-grid">
 
     <div class="app-card">
       <div class="app-card-head">
         <div class="app-icon">🗣️</div>
-        <span class="app-badge badge-soon">En développement</span>
+        <span class="app-badge badge-beta">En Test Bêta</span>
       </div>
       <div class="app-name">Fluencing</div>
       <div class="app-tagline">Parlez les langues couramment</div>
@@ -255,12 +259,12 @@
     <div class="app-card">
       <div class="app-card-head">
         <div class="app-icon">💼</div>
-        <span class="app-badge badge-soon">En développement</span>
+        <span class="app-badge badge-live">Disponible</span>
       </div>
       <div class="app-name">Starlings SalesFlow</div>
       <div class="app-tagline">La vente simplifiée</div>
       <p class="app-desc">Du suivi des prospects à la signature, SalesFlow offre aux indépendants et aux petites équipes un pipeline clair et guidé. Relances IA, rappels de suivi et analyses des taux de conversion — sans la complexité d'un CRM.</p>
-      <span class="app-link-soon">⏳ Bientôt disponible</span>
+      <a class="app-link" href="https://www.starlings.pro" target="_blank" rel="noopener">Accéder à l'application →</a>
     </div>
 
     <div class="app-card">
@@ -277,12 +281,12 @@
     <div class="app-card">
       <div class="app-card-head">
         <div class="app-icon">🏪</div>
-        <span class="app-badge badge-soon">En développement</span>
+        <span class="app-badge badge-live">Disponible</span>
       </div>
       <div class="app-name">Starlings Store</div>
       <div class="app-tagline">Stock · Commandes · Ventes</div>
       <p class="app-desc">Conçu pour les petits showrooms et les boutiques indépendantes. Suivez vos stocks en temps réel, automatisez les réapprovisionnements, gérez votre espace de vente et obtenez des prévisions de demande — sans la lourdeur des outils entreprise.</p>
-      <span class="app-link-soon">⏳ Bientôt disponible</span>
+      <a class="app-link" href="https://store.starlings.pro" target="_blank" rel="noopener">Accéder à l'application →</a>
     </div>
 
     <div class="app-card">
@@ -366,8 +370,9 @@
 <section class="demo-section" id="demo">
   <div class="demo-inner">
     <div class="section-tag">Passez à l'Action</div>
-    <h2>Demander une Démo</h2>
+    <h2>Demander une Démo ou un Feedback</h2>
     <p>Vous souhaitez en savoir plus sur nos solutions pour TPE et indépendants ? Contactez-nous pour une démo — nous vous présenterons les applications les plus adaptées à votre activité et répondrons à toutes vos questions.</p>
+    <p style="margin-top:12px;color:var(--gray);font-size:16px;">Ou vous avez un besoin ou une idée ? Écrivez <strong>« j'ai une idée… »</strong> dans le message et nous vous contactons.</p>
 
     <div class="demo-form" id="demo-form-wrap">
       <div class="fields-row">
@@ -397,6 +402,7 @@
             <option>Starlings Patterns — Résolution de problèmes</option>
             <option>Starlings Hire — Recrutement</option>
             <option>Toutes / Pas encore sûr(e)</option>
+            <option>💡 Une idée d'application</option>
           </select>
         </div>
       </div>
