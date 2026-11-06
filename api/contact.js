@@ -67,7 +67,13 @@ async function saveToSupabase(row) {
   if (!url || !key) throw new Error('Supabase env vars not set');
   const r = await fetch(`${url}/rest/v1/consulting_call_requests`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', apikey: key, Authorization: `Bearer ${key}`, Prefer: 'return=minimal' },
+    headers: {
+      'Content-Type': 'application/json',
+      apikey: key,
+      // Legacy service_role keys are JWTs and also go in Authorization; new sb_secret_ keys only go in apikey.
+      ...(key.startsWith('sb_') ? {} : { Authorization: `Bearer ${key}` }),
+      Prefer: 'return=minimal',
+    },
     body: JSON.stringify(row),
   });
   if (!r.ok) throw new Error(`HTTP ${r.status} ${await r.text()}`);

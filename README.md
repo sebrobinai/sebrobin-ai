@@ -38,7 +38,7 @@ Vercel environment variables:
 | `RESEND_API_KEY` | Resend API key |
 | `NOTIFY_EMAIL` | Where notifications go |
 | `SUPABASE_URL` | `https://cqttmrwieanqtyzybwny.supabase.co` |
-| `SUPABASE_SERVICE_ROLE_KEY` | Supabase › Project Settings › API keys › secret / service_role key (server only) |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase › project **sebrobinai** › Project Settings › API Keys › a **secret** key (`sb_secret_…`) or the legacy **service_role** key. Server only, never in the browser |
 
 The table has RLS on and no public policies, so only the server function can write to it.
 
