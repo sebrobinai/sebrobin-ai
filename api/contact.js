@@ -4,7 +4,7 @@
 // Environment variables (Vercel > Project > Settings > Environment Variables):
 //   RESEND_API_KEY             already used by the previous site
 //   NOTIFY_EMAIL               already used by the previous site (where notifications go)
-//   SUPABASE_URL               https://cqttmrwieanqtyzybwny.supabase.co
+//   SUPABASE_URL               URL of the website's own Supabase project
 //   SUPABASE_SERVICE_ROLE_KEY  Supabase > Project Settings > API keys > service_role / secret key (server only, never in the browser)
 //
 // The request succeeds if at least one of the two channels (database or email) works.

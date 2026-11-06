@@ -28,7 +28,7 @@ Layout lives in `src/build.mjs`, styles in `assets/site.css`, behaviour in `asse
 ## Call-request form
 
 `/contact` posts to `api/contact.js` (Vercel function), which:
-- stores the request in the Supabase table `consulting_call_requests` (project `sebrobinai`), and
+- stores the request in the Supabase table `consulting_call_requests` (the website's own Supabase project, the one `SUPABASE_URL` points to), and
 - emails a notification through Resend (reply-to = the requester).
 
 Vercel environment variables:
@@ -37,8 +37,8 @@ Vercel environment variables:
 |---|---|
 | `RESEND_API_KEY` | Resend API key |
 | `NOTIFY_EMAIL` | Where notifications go |
-| `SUPABASE_URL` | `https://cqttmrwieanqtyzybwny.supabase.co` |
-| `SUPABASE_SERVICE_ROLE_KEY` | Supabase › project **sebrobinai** › Project Settings › API Keys › a **secret** key (`sb_secret_…`) or the legacy **service_role** key. Server only, never in the browser |
+| `SUPABASE_URL` | URL of the website's Supabase project |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase › the website's project › Project Settings › API Keys › a **secret** key (`sb_secret_…`) or the legacy **service_role** key. Server only, never in the browser |
 
 The table has RLS on and no public policies, so only the server function can write to it.
 
