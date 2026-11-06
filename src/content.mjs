@@ -29,7 +29,7 @@ const fr = {
     title: 'SEBROBIN AI · Conseil et déploiement IA, centrés sur l’humain',
     description: "J'aide les entreprises à confier à l'IA le travail répétitif, pour que leurs équipes se consacrent à ce que seul un humain sait faire.",
     h1: 'Arrêtez de payer des salaires humains pour du travail de robot.',
-    lead: "Je repère avec vos équipes les tâches qu'une machine fait mieux, je les confie à l'IA, et vos collaborateurs retrouvent le travail pour lequel vous les avez embauchés : décider, convaincre, créer, prendre soin de vos clients.",
+    lead: "Avec vous et vos équipes, j'identifie les tâches qu'une machine fait mieux, je les confie à l'IA, et vos collaborateurs retrouvent le travail pour lequel vous les avez embauchés : décider, convaincre, créer, prendre soin de vos clients.",
     ctaPrimary: 'Demander un appel',
     ctaSecondary: 'Voir comment ça se passe',
     week: {
@@ -48,10 +48,10 @@ const fr = {
       ],
       legend: 'Barré : l’IA s’en charge. Le reste, c’est votre valeur.',
     },
-    stance: 'Ne pas remplacer les humains. Les rendre meilleurs.',
+    stance: 'Ne pas remplacer les humains. Les rendre plus productifs.',
     gainsTitle: 'Ce que ça change, concrètement',
     gains: [
-      { t: 'Des heures rendues', d: 'Chaque tâche confiée à l’IA est mesurée : temps gagné, par poste, semaine après semaine.' },
+      { t: 'Du temps rendu', d: 'Chaque tâche confiée à l’IA est mesurée : temps gagné, par poste, semaine après semaine.' },
       { t: 'Des équipes qui restent', d: 'Moins de corvées, c’est moins de lassitude, moins de départs, et des postes plus faciles à pourvoir.' },
       { t: 'Des projets qui aboutissent', d: 'Rien ne démarre tant qu’on ne sait pas qu’on peut le financer et le livrer.' },
     ],
@@ -109,20 +109,20 @@ const fr = {
 
   about: {
     title: 'À propos · Seb Robin · SEBROBIN AI',
-    description: 'Seb Robin : fondateur de SEBROBIN AI, bâtisseur d’applications IA, formateur en anglais et évaluateur CLOE.',
+    description: 'Seb Robin : fondateur de SEBROBIN AI, développeur d’applications IA, consultant en innovation et management, entrepreneur.',
     h1: 'Seb Robin',
-    lead: 'Je construis des applications IA, je forme des professionnels, et je suis convaincu d’une chose : la technologie doit rendre du temps aux humains.',
+    lead: 'Je construis des applications IA. Je travaille avec l’IA. Je démontre que l’IA rend du temps aux gens pour qu’ils soient plus productifs.',
     bioTitle: 'Parcours',
     bio: [
-      'Plus de vingt ans au Royaume-Uni et une carrière à l’international m’ont appris que la valeur d’une entreprise tient à ses gens : à leur jugement, à leurs relations, à leurs idées.',
-      'Formateur en anglais et évaluateur CLOE depuis 2020, j’aide des professionnels à mieux communiquer. Aujourd’hui, je construis aussi des applications IA (Fluencing, la suite Starlings, Qalcyom) que je conçois, développe et déploie moi-même.',
-      'C’est cette pratique quotidienne que j’apporte à mes clients : pas une théorie de l’IA, mais l’expérience de ce qui marche, de ce qui casse et de ce que ça coûte vraiment.',
+      'Trente ans de carrière internationale m’ont appris une chose : les gens donnent le meilleur d’eux-mêmes quand ils ne font pas le travail des robots.',
+      'On recrute des professionnels pour leur expérience, leurs réussites, leur formation, leur créativité, leur jugement, leurs idées. J’ai passé toute ma carrière à les aider à mieux exploiter la technologie et les systèmes pour apporter plus de valeur en tant qu’êtres humains.',
+      'J’ai été consultant en innovation et en management, et entrepreneur. Aujourd’hui, je conseille en IA en tant que développeur d’applications IA, que je conçois, développe, déploie et maintiens moi-même. C’est cette pratique quotidienne que j’apporte à mes clients : pas une théorie de l’IA, mais l’expérience de ce qui marche, de ce qui casse et de ce que ça coûte vraiment.',
     ],
     credTitle: 'Repères',
     creds: [
-      'Plus de 20 ans au Royaume-Uni',
-      'Formateur en anglais',
-      'Évaluateur CLOE depuis 2020',
+      '30 ans de carrière internationale',
+      'Entrepreneur',
+      'Consultant en innovation et management',
       'Fondateur de SEBROBIN AI',
       '3 applications IA en production',
       'Bilingue français et anglais',
@@ -131,12 +131,12 @@ const fr = {
     principles: [
       { t: 'Vos objectifs, votre décision', d: 'Je ne juge pas votre stratégie. Je vous montre ce qui est possible et ce que ça vaut. Vous décidez.' },
       { t: 'Rendre les humains meilleurs à ce qui est humain', d: 'La question n’est pas ce que l’IA peut remplacer. C’est ce que vos équipes font de mieux une fois libérées du répétitif, et les opportunités que ça ouvre.' },
-      { t: 'Conçu pour évoluer', d: 'Construire Fluencing et Starlings me l’a appris : un outil IA n’est jamais fini. L’IA fait partie de la conversation, et le projet garde la souplesse de s’adapter à l’usage réel.' },
+      { t: 'Conçu pour évoluer', d: 'Construire SEB+ROBIN et Starlings me l’a appris : un outil IA n’est jamais fini. L’IA fait partie de la conversation, et le projet garde la souplesse de s’adapter à l’usage réel.' },
       { t: 'On ne commence que ce qu’on peut finir', d: 'Si on ne peut pas l’exécuter, le financer et le livrer, je vous le dis avant de commencer.' },
       { t: 'Ce qui ne se mesure pas n’est pas fini', d: 'Un projet est terminé quand le gain est visible, pas quand l’outil est installé.' },
       { t: 'Autonomes, jamais seuls', d: 'Vos équipes savent faire tourner et faire évoluer ce qu’on construit. Et quand vous avez besoin de moi, je suis là.' },
     ],
-    based: 'Basé à Breteuil (Oise). J’interviens en France et à l’international.',
+    based: 'Je travaille à l’international, chaque jour, sur tous les fuseaux horaires.',
   },
 
   contact: {
@@ -189,7 +189,7 @@ const en = {
     title: 'SEBROBIN AI · Human-centred AI consulting and deployment',
     description: 'I help companies hand repetitive work to AI, so their people can focus on what only humans can do.',
     h1: 'Stop paying human salaries for robot work.',
-    lead: 'I work with your teams to find the tasks a machine does better, hand them to AI, and give your people back the work you hired them for: deciding, persuading, creating, looking after your customers.',
+    lead: 'I work with you and your teams to identify the tasks a machine does better, hand them to AI, and give your people back the work you hired them for: deciding, persuading, creating, looking after your customers.',
     ctaPrimary: 'Request a call',
     ctaSecondary: 'See how it works',
     week: {
@@ -208,10 +208,10 @@ const en = {
       ],
       legend: 'Struck out: AI handles it. The rest is your value.',
     },
-    stance: 'Not replacing people. Making them better.',
+    stance: 'Not replacing people. Making them more productive.',
     gainsTitle: 'What actually changes',
     gains: [
-      { t: 'Hours given back', d: 'Every task handed to AI is measured: time saved, per role, week after week.' },
+      { t: 'Time given back', d: 'Every task handed to AI is measured: time saved, per role, week after week.' },
       { t: 'Teams that stay', d: 'Less drudgery means less fatigue, fewer resignations, and roles that are easier to fill.' },
       { t: 'Projects that land', d: 'Nothing starts until we know it can be funded and delivered.' },
     ],
@@ -269,20 +269,20 @@ const en = {
 
   about: {
     title: 'About · Seb Robin · SEBROBIN AI',
-    description: 'Seb Robin: founder of SEBROBIN AI, AI app builder, English trainer and CLOE assessor.',
+    description: 'Seb Robin: founder of SEBROBIN AI, AI app developer, innovation and management consultant, entrepreneur.',
     h1: 'Seb Robin',
-    lead: 'I build AI apps, I train professionals, and I’m convinced of one thing: technology should give people their time back.',
+    lead: 'I build AI apps. I work with AI. I demonstrate that AI gives people their time back to be more productive.',
     bioTitle: 'Background',
     bio: [
-      'More than twenty years in the UK and an international career taught me that a company’s value lies in its people: their judgement, their relationships, their ideas.',
-      'An English trainer and CLOE assessor since 2020, I help professionals communicate better. Today I also build AI apps (Fluencing, the Starlings suite, Qalcyom), which I design, develop and deploy myself.',
-      'That daily practice is what I bring to clients: not a theory of AI, but first-hand experience of what works, what breaks and what it really costs.',
+      'A 30-year international career has taught me that people are at their best when they don’t do the work of robots.',
+      'People are hired for their experience, track record, education, creativity, judgement and ideas. I have spent my entire career helping professionals make better use of technology and systems to add greater value as human beings.',
+      'I have worked as an innovation and management consultant, and as an entrepreneur. Today I consult on AI as a developer of AI applications, which I design, develop, deploy and maintain myself. That daily practice is what I bring to clients: not a theory of AI, but first-hand experience of what works, what breaks and what it really costs.',
     ],
     credTitle: 'At a glance',
     creds: [
-      '20+ years in the UK',
-      'English trainer',
-      'CLOE assessor since 2020',
+      '30-year international career',
+      'Entrepreneur',
+      'Innovation & management consultant',
       'Founder of SEBROBIN AI',
       '3 AI apps in production',
       'Bilingual French and English',
@@ -291,12 +291,12 @@ const en = {
     principles: [
       { t: 'Your goals, your call', d: 'I don’t judge your strategy. I show you what’s possible and what it’s worth. You decide.' },
       { t: 'Make people better at human work', d: 'The question isn’t what AI can replace. It’s what your people do better once the repetitive work is gone, and the opportunities that opens up.' },
-      { t: 'Built to evolve', d: 'Building Fluencing and Starlings taught me there’s no such thing as a finished AI tool. AI is part of the conversation, and the project stays flexible enough to adapt to real use.' },
+      { t: 'Built to evolve', d: 'Building SEB+ROBIN and Starlings taught me there’s no such thing as a finished AI tool. AI is part of the conversation, and the project stays flexible enough to adapt to real use.' },
       { t: 'Only start what we can finish', d: 'If we can’t execute, fund and deliver it, I’ll tell you before we start.' },
       { t: 'If it isn’t measured, it isn’t done', d: 'A project is finished when the gain is visible, not when the tool is installed.' },
       { t: 'Autonomous, never alone', d: 'Your team knows how to run and evolve what we build. And when you need me, I’m there.' },
     ],
-    based: 'Based in Breteuil, France. Working in France and internationally.',
+    based: 'I work internationally, every day, in every timezone.',
   },
 
   contact: {

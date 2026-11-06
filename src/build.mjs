@@ -62,9 +62,8 @@ function jsonLd(c) {
     logo: SITE + '/icon-192.png',
     description: c.home.description,
     email: 'sr@sebrobin.com',
-    areaServed: ['FR', 'Worldwide'],
+    areaServed: 'Worldwide',
     availableLanguage: ['fr', 'en'],
-    address: { '@type': 'PostalAddress', addressLocality: 'Breteuil', addressRegion: 'Oise', addressCountry: 'FR' },
     founder: { '@type': 'Person', name: 'Seb Robin' },
   };
   return `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
