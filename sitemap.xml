@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://ai.sebrobin.com/</loc>
-    <lastmod>2025-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://ai.sebrobin.com/confidentialite.html</loc>
-    <lastmod>2025-05-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://ai.sebrobin.com/cgu.html</loc>
-    <lastmod>2025-05-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://ai.sebrobin.com/</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="fr" href="https://ai.sebrobin.com/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai.sebrobin.com/en"/></url>
+  <url><loc>https://ai.sebrobin.com/en</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="fr" href="https://ai.sebrobin.com/"/><xhtml:link rel="alternate" hreflang="en" href="https://ai.sebrobin.com/en"/></url>
+  <url><loc>https://ai.sebrobin.com/ventures</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="fr" href="https://ai.sebrobin.com/ventures"/><xhtml:link rel="alternate" hreflang="en" href="https://ai.sebrobin.com/en/ventures"/></url>
+  <url><loc>https://ai.sebrobin.com/en/ventures</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="fr" href="https://ai.sebrobin.com/ventures"/><xhtml:link rel="alternate" hreflang="en" href="https://ai.sebrobin.com/en/ventures"/></url>
+  <url><loc>https://ai.sebrobin.com/a-propos</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="fr" href="https://ai.sebrobin.com/a-propos"/><xhtml:link rel="alternate" hreflang="en" href="https://ai.sebrobin.com/en/about"/></url>
+  <url><loc>https://ai.sebrobin.com/en/about</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="fr" href="https://ai.sebrobin.com/a-propos"/><xhtml:link rel="alternate" hreflang="en" href="https://ai.sebrobin.com/en/about"/></url>
+  <url><loc>https://ai.sebrobin.com/conseil</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="fr" href="https://ai.sebrobin.com/conseil"/><xhtml:link rel="alternate" hreflang="en" href="https://ai.sebrobin.com/en/consulting"/></url>
+  <url><loc>https://ai.sebrobin.com/en/consulting</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="fr" href="https://ai.sebrobin.com/conseil"/><xhtml:link rel="alternate" hreflang="en" href="https://ai.sebrobin.com/en/consulting"/></url>
+  <url><loc>https://ai.sebrobin.com/contact</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="fr" href="https://ai.sebrobin.com/contact"/><xhtml:link rel="alternate" hreflang="en" href="https://ai.sebrobin.com/en/contact"/></url>
+  <url><loc>https://ai.sebrobin.com/en/contact</loc><lastmod>2026-11-06</lastmod><xhtml:link rel="alternate" hreflang="fr" href="https://ai.sebrobin.com/contact"/><xhtml:link rel="alternate" hreflang="en" href="https://ai.sebrobin.com/en/contact"/></url>
+  <url><loc>https://ai.sebrobin.com/confidentialite.html</loc><lastmod>2026-11-06</lastmod></url>
+  <url><loc>https://ai.sebrobin.com/cgu.html</loc><lastmod>2026-11-06</lastmod></url>
 </urlset>

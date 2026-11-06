@@ -1,65 +1,47 @@
-# SEBROBIN AI — Landing Page
+# SEBROBIN AI — ai.sebrobin.com
 
-Stack: HTML · Vercel · Supabase · Resend
+Bilingual (FR/EN) static site. Stack: HTML/CSS/JS · Vercel · Supabase · Resend.
 
-## Setup rapide
+## Pages
 
-### 1. GitHub
-```bash
-git init
-git add .
-git commit -m "initial commit"
-git remote add origin https://github.com/VOTRE_USERNAME/sebrobin-ai.git
-git push -u origin main
-```
+| FR | EN |
+|---|---|
+| `/` | `/en` |
+| `/ventures` | `/en/ventures` |
+| `/a-propos` | `/en/about` |
+| `/conseil` | `/en/consulting` |
+| `/contact` | `/en/contact` |
 
-### 2. Supabase
-- Créer un projet sur supabase.com
-- Exécuter dans l'éditeur SQL :
-```sql
-create table newsletter_subscribers (
-  id uuid default gen_random_uuid() primary key,
-  name text not null,
-  email text not null,
-  source text,
-  created_at timestamptz default now()
-);
+Legal pages `confidentialite.html` and `cgu.html` are French only.
 
-create table demo_requests (
-  id uuid default gen_random_uuid() primary key,
-  name text not null,
-  email text not null,
-  company text,
-  app_interest text,
-  message text,
-  created_at timestamptz default now()
-);
-```
-- Copier Project URL et anon key dans .env.local
+## Editing content
 
-### 3. Resend
-- Créer un compte sur resend.com
-- Vérifier le domaine sebrobin.com
-- Créer une API key → copier dans .env.local
+All text lives in **`src/content.mjs`** (French and English side by side; the ventures list is at the bottom).
 
-### 4. Vercel
-- Connecter le repo GitHub sur vercel.com
-- Ajouter les variables d'environnement depuis .env.example
-- Déployer
+1. Edit `src/content.mjs`
+2. Run `node src/build.mjs` from the repo root
+3. Commit the regenerated `.html` files and `sitemap.xml`, then push
 
-### 5. GoDaddy DNS
-Ajouter dans GoDaddy > Mes Domaines > sebrobin.com > DNS :
-```
-Type   : CNAME
-Nom    : ai
-Valeur : cname.vercel-dns.com
-TTL    : 1 heure
-```
-Puis dans Vercel > Project > Settings > Domains :
-Ajouter : ai.sebrobin.com
+Don't edit the generated `.html` files by hand: the next build overwrites them.
+Layout lives in `src/build.mjs`, styles in `assets/site.css`, behaviour in `assets/site.js`.
 
-### 6. index.html — remplacer les placeholders
-```js
-const SUPABASE_URL  = 'https://xxxx.supabase.co';
-const SUPABASE_ANON = 'eyJ...';
-```
+## Call-request form
+
+`/contact` posts to `api/contact.js` (Vercel function), which:
+- stores the request in the Supabase table `consulting_call_requests` (project `sebrobinai`), and
+- emails a notification through Resend (reply-to = the requester).
+
+Vercel environment variables:
+
+| Name | Value |
+|---|---|
+| `RESEND_API_KEY` | Resend API key |
+| `NOTIFY_EMAIL` | Where notifications go |
+| `SUPABASE_URL` | `https://cqttmrwieanqtyzybwny.supabase.co` |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase › Project Settings › API keys › secret / service_role key (server only) |
+
+The table has RLS on and no public policies, so only the server function can write to it.
+
+## Vercel
+
+Framework preset "Other", no build command (the HTML is pre-built and committed). `vercel.json` enables clean URLs.
