@@ -48,7 +48,7 @@ const fr = {
       ],
       legend: 'Barré : l’IA s’en charge. Le reste, c’est votre valeur.',
     },
-    stance: 'Pas remplacer les humains. Les rendre meilleurs.',
+    stance: 'Ne pas remplacer les humains. Les rendre meilleurs.',
     gainsTitle: 'Ce que ça change, concrètement',
     gains: [
       { t: 'Des heures rendues', d: 'Chaque tâche confiée à l’IA est mesurée : temps gagné, par poste, semaine après semaine.' },
