@@ -98,7 +98,7 @@ const fr = {
 
   ventures: {
     title: 'Ventures · SEBROBIN AI',
-    description: 'Les applications IA conçues et construites par SEBROBIN AI : Fluencing, Starlings, Qalcyom.',
+    description: 'Les applications IA conçues et construites par SEBROBIN AI : SEB+ROBIN, Starlings, Qalcyom.',
     h1: 'Ce que je construis.',
     lead: 'Chaque venture est un terrain d’essai. Ce que j’y apprends, en réussites comme en échecs, nourrit directement mes conseils.',
     liveTitle: 'En ligne',
@@ -258,7 +258,7 @@ const en = {
 
   ventures: {
     title: 'Ventures · SEBROBIN AI',
-    description: 'AI apps designed and built by SEBROBIN AI: Fluencing, Starlings, Qalcyom.',
+    description: 'AI apps designed and built by SEBROBIN AI: SEB+ROBIN, Starlings, Qalcyom.',
     h1: 'What I build.',
     lead: 'Each venture is a proving ground. What I learn there, successes and failures alike, goes straight into my advice.',
     liveTitle: 'Live',
@@ -332,9 +332,9 @@ const en = {
 
 export const ventures = [
   {
-    name: 'Fluencing', status: 'live', url: 'https://sebrobin.com',
-    fr: { tag: 'Parler anglais couramment', d: 'Un coach IA de conversation pour les professionnels : de vraies conversations, des retours immédiats, de la confiance pour s’exprimer.' },
-    en: { tag: 'Speak English fluently', d: 'An AI conversation coach for professionals: real conversations, instant feedback, the confidence to speak up.' },
+    name: 'SEB+ROBIN', status: 'live', url: 'https://sebrobin.com',
+    fr: { tag: 'L’anglais oral pour les professionnels', d: 'Avec Fluencing, son coach IA de conversation : de vraies conversations, des retours immédiats, de la confiance pour s’exprimer.' },
+    en: { tag: 'Spoken English for professionals', d: 'Featuring Fluencing, its AI conversation coach: real conversations, instant feedback, the confidence to speak up.' },
   },
   {
     name: 'Starlings SalesFlow', status: 'live', url: 'https://starlings.pro',
