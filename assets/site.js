@@ -57,3 +57,49 @@
     }
   });
 })();
+
+// Aidan: speech bubble lines and states (reduced motion is handled in CSS)
+(function () {
+  var stage = document.querySelector('[data-aidan-lines]');
+  if (!stage) return;
+  var lines = JSON.parse(stage.getAttribute('data-aidan-lines'));
+  var bird = stage.querySelector('.aidan');
+  var txt = stage.querySelector('.txt');
+  var btn = stage.querySelector('.aidan-next');
+  var i = 0, timer;
+  function say(n) {
+    i = n % lines.length;
+    txt.textContent = lines[i];
+    bird.setAttribute('data-state', 'speaking');
+    clearTimeout(timer);
+    timer = setTimeout(function () { bird.setAttribute('data-state', 'idle'); }, Math.min(3600, 900 + lines[i].length * 28));
+  }
+  btn.addEventListener('click', function () { say(i + 1); });
+  bird.addEventListener('mouseenter', function () { if (bird.getAttribute('data-state') === 'idle') bird.setAttribute('data-state', 'listening'); });
+  bird.addEventListener('mouseleave', function () { if (bird.getAttribute('data-state') === 'listening') bird.setAttribute('data-state', 'idle'); });
+  setTimeout(function () { say(0); }, 700);
+})();
+
+// AI Clinic booking: Cal.com inline calendar (loaded only on the Clinic page)
+(function () {
+  var box = document.getElementById('cal-inline');
+  if (!box) return;
+  (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var ns = ar[1]; api.q = api.q || []; if (typeof ns === 'string') { cal.ns[ns] = cal.ns[ns] || api; p(cal.ns[ns], ar); p(cal, ['initNamespace', ns]); } else p(cal, ar); return; } p(cal, ar); }; })(window, 'https://app.cal.com/embed/embed.js', 'init');
+  var tabs = document.querySelectorAll('.book-tab');
+  var n = 0;
+  function show(link) {
+    n++;
+    var id = 'cal-' + n;
+    box.innerHTML = '<div id="' + id + '"></div>';
+    Cal('init', id, { origin: 'https://app.cal.com' });
+    Cal.ns[id]('inline', { elementOrSelector: '#' + id, calLink: link, config: { layout: 'month_view', theme: 'light' } });
+    Cal.ns[id]('ui', { theme: 'light', cssVarsPerTheme: { light: { 'cal-brand': '#c8281e' } }, hideEventTypeDetails: false, layout: 'month_view' });
+  }
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tabs.forEach(function (x) { x.setAttribute('aria-selected', x === t ? 'true' : 'false'); });
+      show(t.getAttribute('data-cal'));
+    });
+  });
+  if (tabs[0]) show(tabs[0].getAttribute('data-cal'));
+})();
