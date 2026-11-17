@@ -15,7 +15,7 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const other = (lang) => (lang === 'fr' ? 'en' : 'fr');
 const href = (key, lang) => pages[key][lang];
 const CAL_USER = 'sebrobinai';
-const CAL_EVENTS = ['clinic-30', 'clinic-60'];
+const CAL_EVENTS = ['30min', '1-hour-meeting'];
 const go = (to, lang) => (to === 'platform' ? `${PLATFORM}?lang=${lang}` : href(to, lang));
 const ext = (to) => (to === 'platform' ? ' rel="noopener"' : '');
 function aidan(c, talk) {
