@@ -14,6 +14,8 @@ const AIDAN_SVG = readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const other = (lang) => (lang === 'fr' ? 'en' : 'fr');
 const href = (key, lang) => pages[key][lang];
+const CAL_USER = 'sebrobinai';
+const CAL_EVENTS = ['clinic-30', 'clinic-60'];
 const go = (to, lang) => (to === 'platform' ? `${PLATFORM}?lang=${lang}` : href(to, lang));
 const ext = (to) => (to === 'platform' ? ' rel="noopener"' : '');
 function aidan(c, talk) {
@@ -337,12 +339,13 @@ function clinic(c) {
 </section>
 
 <section class="block" id="book">
-  <div class="wrap split">
-    <h2>${esc(p.bookTitle)}</h2>
-    <div id="booking">
-      <p>${esc(p.bookSoon)}</p>
-      <a class="btn" href="${href('contact', c.lang)}">${esc(p.bookCta)}</a>
+  <div class="wrap">
+    <div class="section-head"><h2>${esc(p.bookTitle)}</h2><p>${esc(p.bookLead)}</p></div>
+    <div class="book-tabs" role="tablist">
+      ${p.bookTabs.map((x, i) => `<button type="button" role="tab" class="book-tab" aria-selected="${i === 0}" data-cal="${CAL_USER}/${CAL_EVENTS[i]}">${esc(x)}</button>`).join('')}
     </div>
+    <div id="cal-inline" class="cal-inline" data-lang="${c.lang}"></div>
+    <p class="vat">${esc(p.bookFallback)} <a href="https://cal.com/${CAL_USER}" rel="noopener">cal.com/${CAL_USER}</a></p>
   </div>
 </section>
 

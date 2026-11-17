@@ -105,12 +105,13 @@
 </section>
 
 <section class="block" id="book">
-  <div class="wrap split">
-    <h2>Réserver</h2>
-    <div id="booking">
-      <p>La réservation en ligne arrive dans quelques jours. En attendant, écrivez-moi et je vous propose un créneau.</p>
-      <a class="btn" href="/contact">Écrire à Seb</a>
+  <div class="wrap">
+    <div class="section-head"><h2>Réserver</h2><p>Choisissez la durée, puis un créneau. Le paiement se fait en ligne à la réservation.</p></div>
+    <div class="book-tabs" role="tablist">
+      <button type="button" role="tab" class="book-tab" aria-selected="true" data-cal="sebrobinai/clinic-30">30 minutes · 50 €</button><button type="button" role="tab" class="book-tab" aria-selected="false" data-cal="sebrobinai/clinic-60">1 heure · 100 €</button>
     </div>
+    <div id="cal-inline" class="cal-inline" data-lang="fr"></div>
+    <p class="vat">Le calendrier ne s’affiche pas ? Réservez directement sur <a href="https://cal.com/sebrobinai" rel="noopener">cal.com/sebrobinai</a></p>
   </div>
 </section>
 
