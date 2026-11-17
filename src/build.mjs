@@ -400,8 +400,7 @@ function about(c) {
       <h1 class="page-title">${esc(a.h1)}</h1>
       <p class="lead">${esc(a.lead)}</p>
     </div>
-    <!-- TODO: replace with a photo: <img src="/assets/seb.jpg" alt="Seb Robin"> -->
-    <div class="portrait"><span class="initials" aria-hidden="true">SR</span></div>
+    <div class="portrait"><img src="/assets/seb.jpg" alt="Seb Robin" width="560" height="560"></div>
   </div>
 </section>
 <section class="block tight-top">

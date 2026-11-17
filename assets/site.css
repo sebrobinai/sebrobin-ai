@@ -189,7 +189,7 @@ p { max-width: 64ch; }
 
 /* ---------- about ---------- */
 .about-hero { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: clamp(28px, 5vw, 72px); align-items: end; }
-.portrait { aspect-ratio: 4 / 5; border-radius: 6px; background: var(--ink); display: grid; place-items: center; overflow: hidden; }
+.portrait { aspect-ratio: 1 / 1; border-radius: 6px; background: var(--ink); display: grid; place-items: center; overflow: hidden; }
 .portrait img { width: 100%; height: 100%; object-fit: cover; }
 .portrait .initials { font-family: "ADLaM Display", var(--font); font-size: 72px; color: #fff; }
 .creds { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
