@@ -57,3 +57,25 @@
     }
   });
 })();
+
+// Aidan: speech bubble lines and states (reduced motion is handled in CSS)
+(function () {
+  var stage = document.querySelector('[data-aidan-lines]');
+  if (!stage) return;
+  var lines = JSON.parse(stage.getAttribute('data-aidan-lines'));
+  var bird = stage.querySelector('.aidan');
+  var txt = stage.querySelector('.txt');
+  var btn = stage.querySelector('.aidan-next');
+  var i = 0, timer;
+  function say(n) {
+    i = n % lines.length;
+    txt.textContent = lines[i];
+    bird.setAttribute('data-state', 'speaking');
+    clearTimeout(timer);
+    timer = setTimeout(function () { bird.setAttribute('data-state', 'idle'); }, Math.min(3600, 900 + lines[i].length * 28));
+  }
+  btn.addEventListener('click', function () { say(i + 1); });
+  bird.addEventListener('mouseenter', function () { if (bird.getAttribute('data-state') === 'idle') bird.setAttribute('data-state', 'listening'); });
+  bird.addEventListener('mouseleave', function () { if (bird.getAttribute('data-state') === 'listening') bird.setAttribute('data-state', 'idle'); });
+  setTimeout(function () { say(0); }, 700);
+})();

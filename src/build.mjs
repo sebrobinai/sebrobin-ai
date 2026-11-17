@@ -1,17 +1,30 @@
 // Generates the static FR + EN pages from src/content.mjs.
 // Usage:  node src/build.mjs   (run from the repo root, then commit the generated .html files)
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { pages, t, ventures } from './content.mjs';
+import { pages, t, ventures, PLATFORM } from './content.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://ai.sebrobin.com';
 const YEAR = new Date().getFullYear();
 
+const AIDAN_SVG = readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'assets', 'aidan.svg'), 'utf8')
+  .replace(/role="img" aria-label="Aidan"/, 'aria-hidden="true" focusable="false"').trim();
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const other = (lang) => (lang === 'fr' ? 'en' : 'fr');
 const href = (key, lang) => pages[key][lang];
+const go = (to, lang) => (to === 'platform' ? `${PLATFORM}?lang=${lang}` : href(to, lang));
+const ext = (to) => (to === 'platform' ? ' rel="noopener"' : '');
+function aidan(c, talk) {
+  const a = c.aidan;
+  if (!talk) return `<div class="aidan" data-state="idle">${AIDAN_SVG}</div>`;
+  return `<div class="aidan-stage" data-aidan-lines="${esc(JSON.stringify(a.lines))}">
+      <p class="aidan-say" aria-live="polite"><span class="who">${esc(a.who)}</span><span class="txt">${esc(a.lines[0])}</span></p>
+      <div class="aidan" data-state="idle">${AIDAN_SVG}</div>
+      <button type="button" class="aidan-next">${esc(a.next)}</button>
+    </div>`;
+}
 const fileFor = (path) => (path === '/' ? 'index.html' : path === '/en' ? 'en/index.html' : path.slice(1) + '.html');
 
 function head(c, key, page) {
@@ -80,14 +93,15 @@ function header(c, key) {
     </a>
     <nav class="nav-wrap" id="nav-wrap" aria-label="${lang === 'fr' ? 'Navigation principale' : 'Main navigation'}">
       <ul class="nav">
+        ${item('consulting')}
+        ${item('clinic')}
         ${item('ventures')}
         ${item('about')}
-        ${item('consulting')}
-        <li class="m-only"><a href="${href('contact', lang)}">${esc(c.nav.cta)}</a></li>
+        <li class="m-only"><a href="${go('platform', lang)}"${ext('platform')}>${esc(c.nav.cta)}</a></li>
       </ul>
     </nav>
     <a class="lang" href="${href(key || 'home', other(lang))}" hreflang="${other(lang)}" lang="${other(lang)}" title="${esc(c.nav.switchLabel)}">${c.nav.switchShort}</a>
-    <a class="btn small head-cta" href="${href('contact', lang)}">${esc(c.nav.cta)}</a>
+    <a class="btn small head-cta" href="${go('platform', lang)}"${ext('platform')}>${esc(c.nav.cta)}</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-wrap">Menu</button>
   </div>
 </header>
@@ -98,7 +112,10 @@ function ctaBand(c) {
   return `<section class="cta-band">
   <div class="wrap">
     <h2>${esc(c.ctaBand.title)}</h2>
-    <a class="btn light" href="${href('contact', c.lang)}">${esc(c.ctaBand.button)}</a>
+    <div class="cta-actions">
+      <a class="btn light" href="${go('platform', c.lang)}"${ext('platform')}>${esc(c.ctaBand.button)}</a>
+      <a class="btn ghost-light" href="${href('clinic', c.lang)}">${esc(c.ctaBand.second)}</a>
+    </div>
   </div>
 </section>`;
 }
@@ -117,10 +134,11 @@ function footer(c) {
         <p class="foot-tag">${esc(c.footer.tagline)}</p>
       </div>
       <ul class="foot-nav">
+        <li><a href="${href('consulting', lang)}">${esc(c.nav.consulting)}</a></li>
+        <li><a href="${href('clinic', lang)}">${esc(c.nav.clinic)}</a></li>
         <li><a href="${href('ventures', lang)}">${esc(c.nav.ventures)}</a></li>
         <li><a href="${href('about', lang)}">${esc(c.nav.about)}</a></li>
-        <li><a href="${href('consulting', lang)}">${esc(c.nav.consulting)}</a></li>
-        <li><a href="${href('contact', lang)}">${esc(c.nav.cta)}</a></li>
+        <li><a href="${href('contact', lang)}">${esc(c.nav.contact)}</a></li>
       </ul>
       <ul class="foot-nav">
         <li><a href="mailto:sr@sebrobin.com">sr@sebrobin.com</a></li>
@@ -142,18 +160,55 @@ function footer(c) {
 
 /* ---------------- pages ---------------- */
 
+function stagesList(c) {
+  return `<ol class="stages">
+      ${c.stages.map((x) => `<li><span class="k">${esc(x.k)}</span><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p><ul>${x.items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul><span class="avail ${x.cls}">${esc(x.avail)}</span></li>`).join('\n      ')}
+    </ol>`;
+}
+
 function home(c) {
   const h = c.home;
   return `
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
+      <p class="eyebrow">${esc(h.eyebrow)}</p>
       <h1 class="display">${esc(h.h1)}</h1>
+      <p class="sub-h1">${esc(h.sub)}</p>
       <p class="lead">${esc(h.lead)}</p>
       <div class="actions">
-        <a class="btn" href="${href('contact', c.lang)}">${esc(h.ctaPrimary)}</a>
-        <a class="btn ghost" href="${href('consulting', c.lang)}#method">${esc(h.ctaSecondary)}</a>
+        <a class="btn" href="${go('platform', c.lang)}"${ext('platform')}>${esc(h.ctaPrimary)}</a>
+        <a class="btn ghost" href="${href('clinic', c.lang)}">${esc(h.ctaSecondary)}</a>
       </div>
+      <p class="small-note">${esc(h.ctaNote)}</p>
+    </div>
+    ${aidan(c, true)}
+  </div>
+</section>
+
+<section class="block mist">
+  <div class="wrap">
+    <div class="section-head"><h2>${esc(h.econTitle)}</h2><p>${esc(h.econLead)}</p></div>
+    <div class="qs">
+      ${h.econ.map((q, i) => `<div><span class="n">0${i + 1}</span><h3>${esc(q.t)}</h3><p>${esc(q.d)}</p></div>`).join('\n      ')}
+    </div>
+    <div class="gap-note"><p>${esc(h.gap)}</p></div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>${esc(h.stagesTitle)}</h2></div>
+    ${stagesList(c)}
+    <p style="margin-top:22px"><a class="text-link" href="${href('consulting', c.lang)}">${esc(h.stagesLink)}</a></p>
+  </div>
+</section>
+
+<section class="block mist">
+  <div class="wrap hero-grid">
+    <div>
+      <h2>${esc(h.robotTitle)}</h2>
+      <p class="lead">${esc(h.robotText)}</p>
     </div>
     <figure class="week" style="margin:0">
       <figcaption class="week-title">${esc(h.week.title)}</figcaption>
@@ -171,15 +226,25 @@ function home(c) {
 </section>
 
 <section class="block">
-  <div class="wrap">
-    <div class="section-head"><h2>${esc(h.gainsTitle)}</h2></div>
-    <div class="three">
-      ${h.gains.map((g) => `<div><h3>${esc(g.t)}</h3><p>${esc(g.d)}</p></div>`).join('\n      ')}
+  <div class="wrap split">
+    <div style="max-width:300px">${aidan(c, false)}</div>
+    <div>
+      <h2 style="margin-bottom:18px">${esc(h.aidanTitle)}</h2>
+      ${h.aidanText.map((x) => `<p>${esc(x)}</p>`).join('\n      ')}
     </div>
   </div>
 </section>
 
 <section class="block mist">
+  <div class="wrap">
+    <div class="section-head"><h2>${esc(h.waysTitle)}</h2></div>
+    <div class="offers">
+      ${h.ways.map((w) => `<div class="offer"><h3>${esc(w.t)}</h3><span class="price">${esc(w.price)}</span><p>${esc(w.d)}</p><a class="btn ${w.to === 'platform' ? '' : 'ghost'} small" href="${go(w.to, c.lang)}"${ext(w.to)}>${esc(w.cta)}</a></div>`).join('\n      ')}
+    </div>
+  </div>
+</section>
+
+<section class="block">
   <div class="wrap split">
     <h2>${esc(h.builderTitle)}</h2>
     <div>
@@ -188,40 +253,41 @@ function home(c) {
     </div>
   </div>
 </section>
-
-<section class="block">
-  <div class="wrap">
-    <ul class="doors">
-      ${h.doors.map((d) => `<li><a href="${href(d.key, c.lang)}"><h3>${esc(d.t)}</h3><p>${esc(d.d)}</p><span class="go" aria-hidden="true">›</span></a></li>`).join('\n      ')}
-    </ul>
-  </div>
-</section>
 ${ctaBand(c)}`;
 }
 
 function consulting(c) {
   const p = c.consulting;
-  const phaseOf = (i) => p.phases[Math.floor(i / 2)];
-  const steps = p.steps.map((s, i) => {
-    const gate = i === 5;
-    return `<li class="step${gate ? ' gate' : ''}">
-        <div class="marker" aria-hidden="true"><span>${gate ? '?' : i + 1}</span></div>
-        <span class="phase-tag">${i % 2 === 0 ? esc(phaseOf(i)) : ''}</span>
-        <h3>${esc(s.t)}</h3>
-        <p class="q">${esc(s.q)}</p>
-        <p class="out"><span>${esc(p.outLabel)}</span>${esc(s.out)}</p>
-      </li>`;
-  }).join('\n      ');
   return `
 <section class="page-hero">
   <div class="wrap">
     <h1 class="page-title">${esc(p.h1)}</h1>
     <p class="lead">${esc(p.lead)}</p>
-    <div class="actions"><a class="btn" href="${href('contact', c.lang)}">${esc(c.nav.cta)}</a></div>
+    <div class="actions">
+      <a class="btn" href="${go('platform', c.lang)}"${ext('platform')}>${esc(c.nav.cta)}</a>
+      <a class="btn ghost" href="${href('clinic', c.lang)}">${esc(c.ctaBand.second)}</a>
+    </div>
   </div>
 </section>
 
-<section class="block tight-top">
+<section class="block mist" id="method">
+  <div class="wrap">
+    <div class="section-head"><h2>${esc(p.methodTitle)}</h2><p>${esc(p.methodLead)}</p></div>
+    ${stagesList(c)}
+    <div class="gate-note"><span class="diamond" aria-hidden="true"></span><p>${esc(p.gate)}</p></div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>${esc(p.teamTitle)}</h2></div>
+    <div class="three">
+      ${p.team.map((x) => `<div><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></div>`).join('\n      ')}
+    </div>
+  </div>
+</section>
+
+<section class="block mist">
   <div class="wrap">
     <div class="section-head"><h2>${esc(p.valueTitle)}</h2></div>
     <div class="value-list">
@@ -230,27 +296,57 @@ function consulting(c) {
   </div>
 </section>
 
-<section class="block mist" id="method">
-  <div class="wrap method">
-    <div class="section-head"><h2>${esc(p.methodTitle)}</h2><p>${esc(p.methodLead)}</p></div>
-    <div class="phases" aria-hidden="true">
-      ${p.phases.map((ph) => `<div class="phase">${esc(ph)}</div>`).join('')}
-      <div class="phase phase-deliver">${esc(p.deliver.t.split('.')[0])}</div>
+<section class="block">
+  <div class="wrap split">
+    <h2>${esc(p.forTitle)}</h2>
+    <div><p>${esc(p.forText)}</p></div>
+  </div>
+</section>
+${ctaBand(c)}`;
+}
+
+function clinic(c) {
+  const p = c.clinic;
+  return `
+<section class="page-hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="page-title">${esc(p.h1)}</h1>
+      <p class="lead">${esc(p.lead)}</p>
+      <div class="actions"><a class="btn" href="#book">${esc(p.bookTitle)}</a></div>
     </div>
-    <ol class="track">
-      ${steps}
-      <li class="step deliver">
-        <div class="marker" aria-hidden="true"><span>✓</span></div>
-        <span class="phase-tag"></span>
-        <h3>${esc(p.deliver.t)}</h3>
-        <p class="q">${esc(p.deliver.d)}</p>
-      </li>
-    </ol>
-    <div class="gate-note"><span class="diamond" aria-hidden="true"></span><p>${esc(p.gate)}</p></div>
+    <div style="max-width:260px;justify-self:center">${aidan(c, false)}</div>
   </div>
 </section>
 
-<section class="block">
+<section class="block tight-top">
+  <div class="wrap">
+    <div class="section-head"><h2>${esc(p.formatsTitle)}</h2></div>
+    <div class="formats">
+      ${p.formats.map((f) => `<div class="format"><span class="dur">${esc(f.dur)}</span><span class="amt">${esc(f.amt)}</span><p>${esc(f.d)}</p><a class="btn small ${f.book ? '' : 'ghost'}" href="${f.book ? '#book' : href('contact', c.lang)}">${esc(f.cta)}</a></div>`).join('\n      ')}
+    </div>
+    <p class="vat">${esc(p.vat)}</p>
+  </div>
+</section>
+
+<section class="block mist">
+  <div class="wrap split">
+    <h2>${esc(p.howTitle)}</h2>
+    <ol class="how">${p.how.map((x) => `<li>${esc(x)}</li>`).join('')}</ol>
+  </div>
+</section>
+
+<section class="block" id="book">
+  <div class="wrap split">
+    <h2>${esc(p.bookTitle)}</h2>
+    <div id="booking">
+      <p>${esc(p.bookSoon)}</p>
+      <a class="btn" href="${href('contact', c.lang)}">${esc(p.bookCta)}</a>
+    </div>
+  </div>
+</section>
+
+<section class="block mist">
   <div class="wrap split">
     <h2>${esc(p.forTitle)}</h2>
     <div><p>${esc(p.forText)}</p></div>
@@ -391,7 +487,7 @@ function notFound() {
 
 /* ---------------- write ---------------- */
 
-const renderers = { home, consulting, ventures: venturesPage, about, contact };
+const renderers = { home, consulting, clinic, ventures: venturesPage, about, contact };
 const written = [];
 for (const lang of ['fr', 'en']) {
   const c = t[lang];
