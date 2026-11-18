@@ -20,10 +20,10 @@ const go = (to, lang) => (to === 'platform' ? `${PLATFORM}?lang=${lang}` : href(
 const ext = (to) => (to === 'platform' ? ' rel="noopener"' : '');
 function aidan(c, talk) {
   const a = c.aidan;
-  if (!talk) return `<div class="aidan" data-state="idle">${AIDAN_SVG}</div>`;
+  if (!talk) return `<div class="aidan" data-state="idle"></div>`;
   return `<div class="aidan-stage" data-aidan-lines="${esc(JSON.stringify(a.lines))}">
       <p class="aidan-say" aria-live="polite"><span class="who">${esc(a.who)}</span><span class="txt">${esc(a.lines[0])}</span></p>
-      <div class="aidan" data-state="idle">${AIDAN_SVG}</div>
+      <div class="aidan" data-state="idle"></div>
       <button type="button" class="aidan-next">${esc(a.next)}</button>
     </div>`;
 }
@@ -155,6 +155,7 @@ function footer(c) {
   </div>
 </footer>
 <script src="/assets/site.js" defer></script>
+<script src="/assets/aidan.js" defer></script>
 </body>
 </html>
 `;
