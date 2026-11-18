@@ -368,7 +368,7 @@ function clinic(c) {
   <div class="wrap">
     <div class="section-head"><h2>${esc(p.proofTitle)}</h2></div>
     <div class="proof">
-      ${p.proof.map((x) => `<a class="proof-card" href="${x.url}" rel="noopener"><span class="big">${esc(x.n)}</span><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p><span class="text-link">${esc(x.link)}</span></a>`).join('\n      ')}
+      ${p.proof.map((x) => `<a class="proof-card" href="${x.url}" target="_blank" rel="noopener"><span class="big">${esc(x.n)}</span><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p><span class="text-link">${esc(x.link)}</span></a>`).join('\n      ')}
     </div>
     <p class="vat">${esc(p.proofNote)}</p>
   </div>

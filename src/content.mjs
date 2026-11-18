@@ -140,7 +140,6 @@ const fr = {
       'Vous dirigez une TPE ou une PME et vous n’avez pas le temps de « jouer » avec l’IA.',
       'Ou vous l’utilisez déjà : pour écrire un e-mail, résumer un document, chercher une information. Utile, mais votre quotidien n’a pas changé.',
       'Vos journées restent pleines de tâches qui coûtent sans rapporter : saisies, relances, copier-coller, tableaux à remplir.',
-      'Vous manquez de visibilité sur la marche réelle de votre entreprise.',
     ],
     whatTitle: 'En 30 minutes ou 1 heure, ensemble',
     what: [
@@ -151,11 +150,11 @@ const fr = {
     choiceTitle: 'Reste une seule vraie question',
     choiceLead: 'Pour chaque solution de la liste, qui la met en place ?',
     choices: [
-      { t: 'Acheter', d: 'Un logiciel existe déjà et fait le travail. Je vous dis lequel, et ce qu’il vous coûtera vraiment.' },
-      { t: 'Construire vous-même', d: 'Avec ou sans aide. Je vous lance, je vous montre quoi faire et comment, pour que vous ne dépendiez de personne.' },
+      { t: 'Acheter', d: 'Vous connaissez un logiciel qui fait déjà le travail. À vous de jouer !' },
+      { t: 'Construire vous-même', d: 'Avec ou sans mon aide. Je peux vous lancer, vous montrer quoi faire et comment, et vous rendre autonome.' },
       { t: 'Confier à Seb', d: 'Je construis l’agent, l’outil ou l’application pour vous. Le suivi se convient ensemble, au cas par cas.' },
     ],
-    notTitle: 'Ni conseil, ni formation, ni « programme d’adoption ».',
+    notTitle: 'Ni conseil, ni formation, ni programme d’adoption.',
     notText: 'Mon métier, c’est de faire travailler l’IA pour votre entreprise, là où ça compte aujourd’hui. Pour vous aider à gagner de l’argent, pas à en dépenser ni à en brûler. Je construis des applications et des agents tous les jours : je peux vous lancer et vous rendre autonome, sans vous faire payer une fortune en logiciels et en contrats.',
     proofTitle: 'Je construis. Vite.',
     proof: [
@@ -197,7 +196,7 @@ const fr = {
     how: [
       'Vous choisissez un créneau et réglez en ligne.',
       'Vous recevez une confirmation et le lien de la visio, avec trois questions pour préparer la séance.',
-      'On échange sur Zoom ou Google Meet. Je vous dis ce que je ferais, et ce que je ne ferais pas. La séance est résumée par l’IA pour préparer votre rapport.',
+      'On échange sur Zoom ou Google Meet.',
       'Vous recevez un rapport complet et détaillé : ce qui vous coûte, les solutions, et qui peut les mettre en place.',
     ],
     bookTitle: 'Réserver',
@@ -409,7 +408,6 @@ const en = {
       'You run a small or medium business and you don’t have time to “play” with AI.',
       'Or you already use it: to write an email, summarise a document, look something up. Useful, but your day-to-day hasn’t changed.',
       'Your days are still full of tasks that cost without earning: data entry, chasing, copy-pasting, spreadsheets to fill in.',
-      'You lack visibility on how your business is really doing.',
     ],
     whatTitle: 'In 30 minutes or 1 hour, together',
     what: [
@@ -420,11 +418,11 @@ const en = {
     choiceTitle: 'One real question remains',
     choiceLead: 'For each solution on the list, who puts it in place?',
     choices: [
-      { t: 'Buy', d: 'Software already exists and does the job. I tell you which one, and what it will really cost you.' },
-      { t: 'Build it yourself', d: 'With or without help. I get you started and show you what to do and how, so you don’t depend on anyone.' },
+      { t: 'Buy', d: 'You know software that already does the job. Over to you!' },
+      { t: 'Build it yourself', d: 'With or without my help. I can get you started, show you what to do and how, and make you self-sufficient.' },
       { t: 'Ask Seb', d: 'I build the agent, tool or app for you. Ongoing support is agreed together, case by case.' },
     ],
-    notTitle: 'Not advice. Not training. Not an “adoption programme”.',
+    notTitle: 'Not advice. Not training. Not an adoption programme.',
     notText: 'My job is to make AI work for your business, where it matters today. To help you make money, not spend or burn it. I build apps and agents every day: I can get you started and make you self-sufficient, without paying a fortune in software and contracts.',
     proofTitle: 'I build. Fast.',
     proof: [
@@ -466,7 +464,7 @@ const en = {
     how: [
       'You pick a slot and pay online.',
       'You get a confirmation and the video link, with three questions to prepare.',
-      'We meet on Zoom or Google Meet. I tell you what I would do, and what I wouldn’t. The session is summarised by AI to prepare your report.',
+      'We meet on Zoom or Google Meet.',
       'You receive a full, detailed report: what’s costing you, the solutions, and who can put them in place.',
     ],
     bookTitle: 'Book',
