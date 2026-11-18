@@ -9,8 +9,6 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://ai.sebrobin.com';
 const YEAR = new Date().getFullYear();
 
-const AIDAN_SVG = readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'assets', 'aidan.svg'), 'utf8')
-  .replace(/role="img" aria-label="Aidan"/, 'aria-hidden="true" focusable="false"').trim();
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const other = (lang) => (lang === 'fr' ? 'en' : 'fr');
 const href = (key, lang) => pages[key][lang];
@@ -20,10 +18,10 @@ const go = (to, lang) => (to === 'platform' ? `${PLATFORM}?lang=${lang}` : href(
 const ext = (to) => (to === 'platform' ? ' rel="noopener"' : '');
 function aidan(c, talk) {
   const a = c.aidan;
-  if (!talk) return `<div class="aidan" data-state="idle">${AIDAN_SVG}</div>`;
+  if (!talk) return `<div class="aidan" data-state="idle"></div>`;
   return `<div class="aidan-stage" data-aidan-lines="${esc(JSON.stringify(a.lines))}">
       <p class="aidan-say" aria-live="polite"><span class="who">${esc(a.who)}</span><span class="txt">${esc(a.lines[0])}</span></p>
-      <div class="aidan" data-state="idle">${AIDAN_SVG}</div>
+      <div class="aidan" data-state="idle"></div>
       <button type="button" class="aidan-next">${esc(a.next)}</button>
     </div>`;
 }
@@ -155,6 +153,7 @@ function footer(c) {
   </div>
 </footer>
 <script src="/assets/site.js" defer></script>
+<script src="/assets/aidan.js" defer></script>
 </body>
 </html>
 `;

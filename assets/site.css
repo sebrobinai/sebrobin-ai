@@ -279,32 +279,7 @@ fieldset.field { border: 0; margin: 0; padding: 0; }
   .cta-band .btn { width: 100%; text-align: center; }
 }
 
-/* ---------- Aidan, the origami robin ---------- */
-.aidan { position: relative; display: block; width: 100%; max-width: 360px; margin: 0 auto; }
-.aidan svg { display: block; width: 100%; height: auto; overflow: visible; }
-.aidan .a-body { transform-box: view-box; transform-origin: 110px 100px; animation: a-float 4.2s ease-in-out infinite; }
-.aidan .a-wing { transform-box: view-box; transform-origin: 104px 94px; animation: a-breathe 4.2s ease-in-out infinite; }
-.aidan .a-wing-back { transform-box: view-box; transform-origin: 112px 88px; animation: a-breathe 4.2s ease-in-out infinite .15s; }
-.aidan .a-head { transform-box: view-box; transform-origin: 146px 82px; transition: transform .45s cubic-bezier(.3,.7,.3,1); }
-.aidan .a-shadow { transform-box: view-box; transform-origin: 112px 166px; animation: a-shadow 4.2s ease-in-out infinite; }
-.aidan[data-state="listening"] .a-head { transform: rotate(-9deg); }
-.aidan[data-state="listening"] .a-body { animation-duration: 2.6s; }
-.aidan[data-state="thinking"] .a-head { animation: a-ponder 2.4s ease-in-out infinite; }
-.aidan[data-state="thinking"] .a-wing { animation: a-fold 2.4s ease-in-out infinite; }
-.aidan[data-state="speaking"] .a-wing { animation: a-flap .52s ease-in-out infinite; }
-.aidan[data-state="speaking"] .a-wing-back { animation: a-flap .52s ease-in-out infinite .06s; }
-.aidan[data-state="speaking"] .a-head { animation: a-nod .52s ease-in-out infinite; }
-.aidan[data-state="celebrate"] .a-wing { animation: a-open 1.1s cubic-bezier(.3,.7,.3,1) 1; }
-@keyframes a-float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-6px) } }
-@keyframes a-shadow { 0%,100% { transform: scaleX(1); opacity: .10 } 50% { transform: scaleX(.9); opacity: .07 } }
-@keyframes a-breathe { 0%,100% { transform: rotate(0) } 50% { transform: rotate(-3deg) } }
-@keyframes a-flap { 0%,100% { transform: rotate(0) } 50% { transform: rotate(-11deg) } }
-@keyframes a-nod { 0%,100% { transform: rotate(0) } 50% { transform: rotate(3deg) } }
-@keyframes a-ponder { 0%,100% { transform: rotate(-4deg) } 50% { transform: rotate(5deg) } }
-@keyframes a-fold { 0%,100% { transform: rotate(0) scaleY(1) } 50% { transform: rotate(4deg) scaleY(.92) } }
-@keyframes a-open { 0% { transform: rotate(0) } 40% { transform: rotate(-26deg) } 100% { transform: rotate(0) } }
-@media (prefers-reduced-motion: reduce) { .aidan *, .aidan .a-head { animation: none !important; transition: none !important; } }
-
+/* ---------- Aidan (styles live in /assets/aidan.js) ---------- */
 .aidan-stage { position: relative; }
 .aidan-say { position: relative; margin: 0 auto 8px; max-width: 320px; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; font-size: 15px; line-height: 1.45; color: var(--ink); min-height: 4.4em; box-shadow: 0 8px 24px rgba(30,37,69,.06); }
 .aidan-say::after { content: ""; position: absolute; left: 58%; bottom: -8px; width: 14px; height: 14px; background: var(--paper); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transform: rotate(45deg); }
