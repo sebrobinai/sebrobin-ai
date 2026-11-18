@@ -311,19 +311,94 @@ ${ctaBand(c)}`;
 
 function clinic(c) {
   const p = c.clinic;
+  const SOURCES = [
+    ['France Num, Baromètre 2026', 'https://www.francenum.gouv.fr/guides-et-conseils/strategie-numerique/comprendre-le-numerique/barometre-france-num-2026-le'],
+    ['DGE, communiqué du 28 septembre 2026', 'https://www.entreprises.gouv.fr/espace-presse/barometre-france-num-2026-quatre-tpe-pme-sur-dix-utilisent-desormais-lintelligence'],
+    ['Sénat, rapport d’information n° 572 (2025-2026)', 'https://www.senat.fr/rap/r25-572/r25-5728.html'],
+  ];
   return `
 <section class="page-hero">
   <div class="wrap hero-grid">
     <div>
-      <h1 class="page-title">${esc(p.h1)}</h1>
+      <p class="eyebrow">${esc(p.h1)}</p>
+      <h1 class="page-title">${esc(p.sub)}</h1>
       <p class="lead">${esc(p.lead)}</p>
-      <div class="actions"><a class="btn" href="#book">${esc(p.bookTitle)}</a></div>
+      <div class="actions">
+        <a class="btn" href="#book">${esc(p.ctaBook)}</a>
+        <a class="btn ghost" href="#formats">${esc(p.ctaFormats)}</a>
+      </div>
     </div>
-    <div style="max-width:260px;justify-self:center">${aidan(c, false)}</div>
+    <div style="max-width:260px;justify-self:center;width:100%">${aidan(c, false)}</div>
   </div>
 </section>
 
-<section class="block tight-top">
+<section class="block mist">
+  <div class="wrap split">
+    <h2>${esc(p.forTitle)}</h2>
+    <ul class="checks">${p.forItems.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>${esc(p.whatTitle)}</h2></div>
+    <div class="qs">
+      ${p.what.map((q, i) => `<div><span class="n">0${i + 1}</span><h3>${esc(q.t)}</h3><p>${esc(q.d)}</p></div>`).join('\n      ')}
+    </div>
+  </div>
+</section>
+
+<section class="block mist">
+  <div class="wrap">
+    <div class="section-head"><h2>${esc(p.choiceTitle)}</h2><p>${esc(p.choiceLead)}</p></div>
+    <div class="offers">
+      ${p.choices.map((x) => `<div class="offer"><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></div>`).join('\n      ')}
+    </div>
+  </div>
+</section>
+
+<section class="stance">
+  <div class="wrap">
+    <p>${esc(p.notTitle)}</p>
+    <p class="stance-sub">${esc(p.notText)}</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>${esc(p.proofTitle)}</h2></div>
+    <div class="proof">
+      ${p.proof.map((x) => `<a class="proof-card" href="${x.url}" rel="noopener"><span class="big">${esc(x.n)}</span><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p><span class="text-link">${esc(x.link)}</span></a>`).join('\n      ')}
+    </div>
+    <p class="vat">${esc(p.proofNote)}</p>
+  </div>
+</section>
+
+<section class="block mist">
+  <div class="wrap">
+    <div class="section-head"><h2>${esc(p.whyTitle)}</h2></div>
+    <div class="why">
+      ${p.why.map((x) => `<div><h3>${esc(x.t)}</h3><p>${esc(x.d)}</p></div>`).join('\n      ')}
+    </div>
+    <div class="ask">
+      <h3>${esc(p.askTitle)}</h3>
+      <p>${esc(p.askText)} <a class="text-link" href="mailto:sr@sebrobin.com">sr@sebrobin.com</a> · <a class="text-link" href="tel:+33650752625">+33 6 50 75 26 25</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>${esc(p.dataTitle)}</h2><p>${esc(p.dataLead)}</p></div>
+    <div class="stats">
+      ${p.data.map((x) => `<div class="stat"><span class="big">${esc(x.n)}</span><p>${esc(x.d)}</p><span class="src">${esc(x.src)}</span></div>`).join('\n      ')}
+    </div>
+    <div class="gap-note"><h3 style="margin-bottom:8px">${esc(p.dataMeansTitle)}</h3><p>${esc(p.dataMeans)}</p></div>
+    <p class="vat">${esc(p.sources)} : ${SOURCES.map(([t, u]) => `<a href="${u}" rel="noopener">${esc(t)}</a>`).join(' · ')}</p>
+  </div>
+</section>
+
+<section class="block mist" id="formats">
   <div class="wrap">
     <div class="section-head"><h2>${esc(p.formatsTitle)}</h2></div>
     <div class="formats">
@@ -333,14 +408,14 @@ function clinic(c) {
   </div>
 </section>
 
-<section class="block mist">
+<section class="block">
   <div class="wrap split">
     <h2>${esc(p.howTitle)}</h2>
     <ol class="how">${p.how.map((x) => `<li>${esc(x)}</li>`).join('')}</ol>
   </div>
 </section>
 
-<section class="block" id="book">
+<section class="block mist" id="book">
   <div class="wrap">
     <div class="section-head"><h2>${esc(p.bookTitle)}</h2><p>${esc(p.bookLead)}</p></div>
     <div class="book-tabs" role="tablist">
@@ -348,13 +423,6 @@ function clinic(c) {
     </div>
     <div id="cal-inline" class="cal-inline" data-lang="${c.lang}"></div>
     <p class="vat">${esc(p.bookFallback)} <a href="https://cal.com/${CAL_USER}" rel="noopener">cal.com/${CAL_USER}</a></p>
-  </div>
-</section>
-
-<section class="block mist">
-  <div class="wrap split">
-    <h2>${esc(p.forTitle)}</h2>
-    <div><p>${esc(p.forText)}</p></div>
   </div>
 </section>
 ${ctaBand(c)}`;
