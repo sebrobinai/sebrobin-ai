@@ -261,13 +261,16 @@ function consulting(c) {
   const p = c.consulting;
   return `
 <section class="page-hero">
-  <div class="wrap">
-    <h1 class="page-title">${esc(p.h1)}</h1>
-    <p class="lead">${esc(p.lead)}</p>
-    <div class="actions">
-      <a class="btn" href="${go('platform', c.lang)}"${ext('platform')}>${esc(c.nav.cta)}</a>
-      <a class="btn ghost" href="${href('clinic', c.lang)}">${esc(c.ctaBand.second)}</a>
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="page-title">${esc(p.h1)}</h1>
+      <p class="lead">${esc(p.lead)}</p>
+      <div class="actions">
+        <a class="btn" href="${go('platform', c.lang)}"${ext('platform')}>${esc(c.nav.cta)}</a>
+        <a class="btn ghost" href="${href('clinic', c.lang)}">${esc(c.ctaBand.second)}</a>
+      </div>
     </div>
+    <img class="aidan-gif" src="/assets/aidan/aidan-turn.gif" alt="Aidan" width="360" height="336" loading="eager">
   </div>
 </section>
 
