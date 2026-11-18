@@ -270,7 +270,7 @@ function consulting(c) {
         <a class="btn ghost" href="${href('clinic', c.lang)}">${esc(c.ctaBand.second)}</a>
       </div>
     </div>
-    <img class="aidan-gif" src="/assets/aidan/aidan-turn.gif" alt="Aidan" width="360" height="336" loading="eager">
+    <img class="aidan-gif" src="/assets/aidan/fold-8.webp" alt="Aidan" width="695" height="637" loading="eager">
   </div>
 </section>
 
