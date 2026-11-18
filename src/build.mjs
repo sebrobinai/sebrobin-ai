@@ -9,8 +9,6 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://ai.sebrobin.com';
 const YEAR = new Date().getFullYear();
 
-const AIDAN_SVG = readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'assets', 'aidan.svg'), 'utf8')
-  .replace(/role="img" aria-label="Aidan"/, 'aria-hidden="true" focusable="false"').trim();
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const other = (lang) => (lang === 'fr' ? 'en' : 'fr');
 const href = (key, lang) => pages[key][lang];
