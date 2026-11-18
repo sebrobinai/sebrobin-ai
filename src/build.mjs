@@ -382,7 +382,7 @@ function clinic(c) {
     </div>
     <div class="ask">
       <h3>${esc(p.askTitle)}</h3>
-      <p>${esc(p.askText)} <a class="text-link" href="mailto:sr@sebrobin.com">sr@sebrobin.com</a></p>
+      <p>${esc(p.askText)} <a class="text-link" href="mailto:sr@sebrobin.com">sr@sebrobin.com</a> · <a class="text-link" href="tel:+33650752625">+33 6 50 75 26 25</a></p>
     </div>
   </div>
 </section>
